@@ -82,3 +82,68 @@ for name in poll_invitation:
         print(f"Dear {name} its a reminder to take part in our poll")
 
 ###NESTING
+# nesting dictionary to list
+apple_0 = {'color':'green','rank':'5'}
+apple_1 = {'color':'black','rank':'9'}
+apple_2 = {'color':'white','rank':'10'}
+# so I basically creating couple of dictionaries and can call them by name in the list
+apples = [apple_0,apple_1,apple_2]
+for appleE in apples:
+    print(f"\n{appleE}")
+print("\n")
+
+#cool example of creating multiple dictionaries using range()
+apples = []
+#making 30
+for apple_number in range(30):
+    apple = {'color':'white','rank':'10','power':'100'}
+    apples.append(apple)
+#making changes on scale
+for apple in apples[:3]:
+    if apple['color'] == 'white':
+        apple['color'] = 'pink'
+        apple['rank'] = 8
+        apple['power'] = 88
+#showing
+for apple in apples[:12]:
+    print(apple)
+print("\n")
+#checking how many we have
+print(f"Total number of apples: {len(apples)}\n")
+
+#nesting list to dictionary
+#creating a dictionary and inside of this dictionary I can create key which have
+#variable as list and then utilise it
+book = {'tickness':'hard',
+        'chapters': ['chapter1', 'chapter2', 'chapter3']}
+print(f"You ordered {book['tickness']}-tickness book which contains: ")
+for chapter in book['chapters']:
+    print(f"\t{chapter}")
+#cool example of how to use lists in dictionaries
+# I created dict then I created 2 keys and linked em to dict using items and for in
+fav_cars = { 'Anna':['Bentley','Ferrari'],
+            'Max':['McLaren','BMW','Corvette'],
+            'Amina':['Audi','RangeRover']}
+for name, cars in fav_cars.items():
+    print(f"\n{name.upper()}'S favourite car is:")
+    for car in cars:
+        print(f"{car}")
+print("\n")
+
+##### a dictionary in dictionary
+users = {'maxwell':{
+    'first_name':'Max',
+    'last_name':'Well',
+    'geo':'Ukraine'
+},
+'annawell':{
+    'first_name':'Anna',
+    'last_name':'Well',
+    'geo':'UK'
+}}
+
+for username,userinfo in users.items():
+    print(f"Username:{username},")
+    full_name = f"{userinfo['first_name']} {userinfo['last_name']}"
+    geo = f"{userinfo['geo']}"
+    print(f"{full_name}\n{geo}\n")
