@@ -110,3 +110,37 @@ while active:
         print(f"You are under {message} y.o. and your ticket is 15$")
     else:
         print(message)
+
+#there examles of how to do functional task using while loop
+#move items from list to list
+unlogged = ['john','russel','bro']
+logged = []
+while unlogged:
+    current = unlogged.pop()
+    print(f"loggin in: {current.title()}")
+    logged.append(current)
+print("\nlogged in:")
+for logged_user in logged:
+    print(f"{logged_user}")
+
+#removing duplicates
+pets = ['dog','dog','cat']
+while 'dog' in pets:
+    pets.remove('dog')
+print(pets)
+
+## practicing store data into dictionary using input()
+db = {}  #emty dict
+polling_active = True #flagging
+while polling_active:
+    nam3 = input("What is your name?")  #prept inputs
+    ag3 = input("What is your age?")
+    prog_lang = input("What's your favourite programming language?")
+    db[nam3] = ag3,prog_lang #storing into db data [defined my key to which I will assign values =]
+    print(f"Data we received so far: {db}") #checking is it works
+    repeat = input("Would you like to let someone else do it? (yes/no)")
+    if repeat == 'no':
+        polling_active = False  #stoping the loop
+        print("|||||RESULT|||||")
+        for nam3,ag3 in db.items(): # I missed this step trying to make trio nam3,ag3,prog_lang instead of pair
+            print(f"Info about {nam3.title()}:\nAge: {ag3}\nFav programming language is: {prog_lang}")
