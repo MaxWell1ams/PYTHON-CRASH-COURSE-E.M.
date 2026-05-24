@@ -20,3 +20,32 @@ while online:
     else:
         hello(name) #argument positional
         hello(user = name) #argument keyword
+
+#practicing using functions pos and key args and input
+def order_tshirt(color, size, text, comment=None):  #I left comment='' - its will be optional argument
+    #so None is empty value I can use instead of '' - so if none = false
+    #and if I will input smth to comments its wil be = True
+    if comment:  #I also tried if comment != '' also works
+        print(f"Your order:\n {color} t-shirt\n with size: {size}\n and text: {text}\nand comment:{comment}")
+    else:
+        print(f"Your order:\n {color} t-shirt\n with size: {size}\n and text: {text}")
+order_active = True
+while order_active:
+        color = input("What's your preferd color?:\n  ")
+        size = input("What's your prefered size of t-shirt?:\n  ")
+        text = input ("What's your wanted text to be printed on t-shirt?:\n  ")
+        comment = input("Drop your comment below:\n")
+        order_tshirt(color, size, text, comment)
+        next_order = input("Do you want order one more? (yes/no):\n ")
+        if next_order == 'no':
+            print("Bye, looking forward for your next visit!")
+            order_active = False
+
+#RETURN VALUES - example
+def t_shirt(sizee, colorr):
+    #full_tshirt = f"{sizee} {colorr}" # in the same way I can return list or dictionary
+    full_tshirt = {'size':sizee, 'color':colorr}
+    return full_tshirt
+orderrr = t_shirt('xl','white')
+print(orderrr)
+
