@@ -49,3 +49,38 @@ def t_shirt(sizee, colorr):
 orderrr = t_shirt('xl','white')
 print(orderrr)
 
+#practicing using lists and functions
+messages = ['sup','yo','hi','oi']
+sent_messagess = []
+def show_messages(messages):
+    for message in messages:
+        print(f"your message: {message}")
+show_messages(messages)
+while messages:
+    current_messages = messages.pop() # to prevent list from modifying 1st list I can use just append
+    # without pop or function_name(list_name[:]) to copy list
+    sent_messagess.append(current_messages)
+    
+print(messages)
+print(sent_messagess)
+
+# Arbitrary Argument - it's when I have asteriks before parameter name
+# for example def borsh(*toppings) - when I hav it input I add to this function
+# will be written to list topping and for example I can call this list and
+# list willl contain what I inputed
+
+def borsh(*toppings): #if I will add regular parameter for regular argument
+    # the arbitrary pararameter should be placed last like def sss(sdds, sdds, *dssdd)
+    # so it's for LISTS - arbitrary with 1 asteriks
+    print(toppings)
+order_activ3 = True
+while order_activ3:
+    toppings = input("What you'd add to borsh?:\n")
+    continueation = input("Whoud you add smth else?(yes/no)")
+    if continueation == 'no':
+        order_activ3 = False
+        print(toppings) #/////////////// need to solve ????????????????????
+
+# for dictionaries I can use double asteriks
+# def ss(sdsd, sdds, **dsdsd)
+# also usually people use args* and **kwargs as nameplates
