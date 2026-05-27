@@ -10,6 +10,7 @@ greeting() #calling function
 
 #trying use inut with function, addign parameter and adding argument
 def hello(user):  #parameter in ()
+    """greeting with formating"""
     print(f"Hello {user.title()}")
 online = True
 while online:
@@ -69,18 +70,63 @@ print(sent_messagess)
 # will be written to list topping and for example I can call this list and
 # list willl contain what I inputed
 
-def borsh(*toppings): #if I will add regular parameter for regular argument
+def borsh(volume, *toppings): #if I will add regular parameter for regular argument
     # the arbitrary pararameter should be placed last like def sss(sdds, sdds, *dssdd)
     # so it's for LISTS - arbitrary with 1 asteriks
-    print(toppings)
-order_activ3 = True
-while order_activ3:
-    toppings = input("What you'd add to borsh?:\n")
-    continueation = input("Whoud you add smth else?(yes/no)")
-    if continueation == 'no':
-        order_activ3 = False
-        print(toppings) #/////////////// need to solve ????????????????????
-
+    print(f"Making a {volume} borsh with: ")
+    for topping in toppings:
+        print(topping)
+def client_profile(first, last, **user_info):  #kwargs (for dictionaries)
+    user_info['first_name'] = first
+    user_info['last_name'] = last
+    return user_info
+order_active = True
+while order_active:
+    profile = input("What's your first and last name?:\n")
+    user_profile = client_profile(profile)
+    ingradients = input("Put your ingradient:\n")
+    volume = input("What borsh volume you like?(S/M/L/XL):\n")
+    borsh(volume, ingradients)
+    print(f"Order for {user_profile} will be soon")
+    next_order = input("Do you want order one more? (yes/no):\n ")
+    if next_order == 'no':
+        print("Bye, looking forward for your next visit!")
+        order_active = False
 # for dictionaries I can use double asteriks
 # def ss(sdsd, sdds, **dsdsd)
 # also usually people use args* and **kwargs as nameplates
+#but after playing with import version this one above start braking with same reason imported did
+
+#### MODULES and IMPORT
+#so I created separate files with funbctions - so called modules
+# now I can import em and that it
+import module_borsh
+import module_client_profile
+#but I can create 1 file with all modules and import em in another way
+from modules import borsh, client_profile #and in this case seems like I dont need to put dot
+#before function dependent argument
+#AND I can also utilise asteriks to call all the functions from module
+from modules import *
+order_active = True
+while order_active:
+    profile = input("What's your first and last name?:\n").split() #utilised split to have 2 values when writing input
+    user_profile = client_profile(*profile) #so I called it to feed 1 and last name cuz without * it would not work
+    #and when I use import program behave differently - I need do additional logic
+    ingradients = input("Put your ingradient:\n")
+    volume = input("What borsh volume you like?(S/M/L/XL):\n")
+    borsh(volume, ingradients)
+    print(f"Order for {user_profile} will be soon")
+    next_order = input("Do you want order one more? (yes/no):\n ")
+    if next_order == 'no':
+        print("Bye, looking forward for your next visit!")
+        order_active = False
+### !!!!!!!!!!!!!NEEEEEEEED TO PRACTICE MORE!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# I can use aliases to import function and rename it if needed to not mistake my program
+from modules import borsh as bh
+bh('xl','garlick')
+
+#and if I import just module I can also short it
+import module_borsh as mb
+mb.borsh
+#AND I can also utilise asteriks to call all the functions from module
+from modules import *
