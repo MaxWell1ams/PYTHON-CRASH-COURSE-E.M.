@@ -1,9 +1,9 @@
-import module_borsh
-import module_client_profile
+from modules import *
 order_active = True
 while order_active:
-    profile = input("What's your first and last name?:\n")
-    user_profile = client_profile(profile)
+    profile = input("What's your first and last name?:\n").split() #utilised split to have 2 values when writing input
+    user_profile = client_profile(*profile) #so I called it to feed 1 and last name cuz without * it would not work
+    #and when I use import program behave differently - I need do additional logic
     ingradients = input("Put your ingradient:\n")
     volume = input("What borsh volume you like?(S/M/L/XL):\n")
     borsh(volume, ingradients)
