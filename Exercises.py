@@ -1,14 +1,14 @@
-from modules import *
-order_active = True
-while order_active:
-    profile = input("What's your first and last name?:\n").split() #utilised split to have 2 values when writing input
-    user_profile = client_profile(*profile) #so I called it to feed 1 and last name cuz without * it would not work
-    #and when I use import program behave differently - I need do additional logic
-    ingradients = input("Put your ingradient:\n")
-    volume = input("What borsh volume you like?(S/M/L/XL):\n")
-    borsh(volume, ingradients)
-    print(f"Order for {user_profile} will be soon")
-    next_order = input("Do you want order one more? (yes/no):\n ")
-    if next_order == 'no':
-        print("Bye, looking forward for your next visit!")
-        order_active = False
+from car_module import Car
+from ev_module import EV
+
+my_new_car = Car('corvette','gt3','2026')
+print(my_new_car.get_descripiton())
+my_new_car.odometer_read = 23
+my_new_car.update_odometer(13)
+my_new_car.read_odometer()
+my_new_car.increase_odometer(100)
+my_new_car.read_odometer()
+
+my_leaf = EV('nissan','leaf','2024')
+print(my_leaf.get_descripiton())
+my_leaf.battery.battery_info() 
