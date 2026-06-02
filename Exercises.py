@@ -1,14 +1,19 @@
-from car_module import Car
-from ev_module import EV
-
-my_new_car = Car('corvette','gt3','2026')
-print(my_new_car.get_descripiton())
-my_new_car.odometer_read = 23
-my_new_car.update_odometer(13)
-my_new_car.read_odometer()
-my_new_car.increase_odometer(100)
-my_new_car.read_odometer()
-
-my_leaf = EV('nissan','leaf','2024')
-print(my_leaf.get_descripiton())
-my_leaf.battery.battery_info() 
+from pathlib import Path
+path = Path('chapter 10 folder/simple_db1.txt')
+contents = path.read_text()
+lines = contents.splitlines()
+print("Hello\nProvide your login and password:")
+active = True
+while active:
+    login = input("login:\n")
+    password = input("password:\n")
+    print("loggining....")
+    if login and password in lines:
+        print("welcome back")
+    else:
+        print("oh you new one bro")
+        path.write_text(login)
+        path.write_text(password)
+    quit = input("wanna quit or relogin?(quit/relogin)")
+    if quit == 'quit':
+        active = False
