@@ -27,7 +27,7 @@ path.write_text(content)
 from pathlib import Path
 path = Path('chapter 10 folder/simple_db1.txt')
 contents = path.read_text()
-lines = contents.splitlines()
+lines = contents
 print("Hello\nProvide your login and password:")
 active = True
 while active:
@@ -43,8 +43,7 @@ while active:
         # cuz next value will overwrite it so will use pass
         with open(path, 'a') as f: #I researched that I can utilise a - as append
             # w as write and r as read in format above
-            f.write(f"{login} \n")
-            f.write(f"{password} \n")
+            f.write(f"{login}\n{password} \n")
     quit = input("wanna quit or relogin?(quit/relogin)")
     if quit == 'quit':
         active = False
