@@ -1,1 +1,27 @@
-Well
+Wellwell
+Max 
+Well 
+Max 
+Well 
+path = Path('chapter 10 folder/simple_db1.txt') 
+contents = path.read_text() 
+print("Hello\nProvide your login and password:") 
+active = True 
+    login = input("login:\n") 
+    password = input("password:\n") 
+    if password.lower() and login.lower() in lines: 
+        print("welcome back") 
+        print("oh you new one bro") 
+        #path.write_text(f"{password}\n") --- #its cant write login,password in one run 
+        # cuz next value will overwrite it so will use pass 
+        with open(path, 'a') as f: #I researched that I can utilise a - as append 
+            f.write(f"{login} \n") 
+            f.write(f"{password} \n") 
+    if quit == 'quit': 
+        active = False 
+Max 
+Well 
+Max 
+Well 
+Max 
+Well 
