@@ -87,4 +87,56 @@ except FileNotFoundError:
 except FileNotFoundError:
     pass
 
+### JSON (dums() and loads())
+from pathlib import Path
+import json
+numbers = [1,2,3,45,6,78,854,6456,456,5,45,4]
+path = Path('chapter 10 folder/numbers.json')
+contents = json.dumps(numbers) #dumps to dump = put data to
+path.write_text(contents)
 
+#but I think to append data I should use the same technique
+from pathlib import Path
+import json
+numbers = [1,2,3,45,6,78,854,6456,456,5,45,4]
+path = Path('chapter 10 folder/numbers.json')
+contents = json.dumps(numbers) #dumps to dump = put data to
+#with open(path, 'a') as f:
+   # f.write(f"{contents}\n") #and its works but loads cant read it
+with open(path, 'w') as f:
+    f.write(f"{contents}\n")
+
+from pathlib import Path
+import json
+path = Path('chapter 10 folder/numbers.json')
+contents = path.read_text()
+numbers = json.loads(contents) #loads - to load data to read
+print(numbers)
+
+## practicing with JSON
+from pathlib import Path
+import json
+path = Path('chapter 10 folder/json_db.json')
+print("Welcome to JSONDB")
+contents = path.read_text()
+logins = json.loads(contents) #damn I was frustrated
+# so if my json file will be empty loads() will not work so I needed to add []
+# to the file to make my rogramm work
+active = True
+while active:
+    login = input("put your login:\n")
+    if login.lower() in logins:
+        print(f"Welcome to the system {login.upper()}")
+    else:
+        name = input("Dont see you in the system\nLet me know your name:\n")
+        last_name = input("\nLet me know your last name:\n")
+        login = f"{name}{last_name}"
+        logins.append(login) #here I using append cuz open(path, 'a') will add new list and
+        # loads will not able to read it, so I adding new data in python and overwrite 
+        # it already updated
+        contents = json.dumps(logins)
+        with open(path, 'w') as f:
+            f.write(f"{contents}\n")
+    next = input("next?:\n")
+    if next == 'no':
+        active = False

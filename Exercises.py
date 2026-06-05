@@ -1,19 +1,22 @@
 from pathlib import Path
-path = Path('chapter 10 folder/simple_db1.txt')
+import json
+path = Path('chapter 10 folder/json_db.json')
+print("Welcome to JSONDB")
 contents = path.read_text()
-lines = contents.splitlines()
-print("Hello\nProvide your login and password:")
+logins = json.loads(contents)
 active = True
 while active:
-    login = input("login:\n")
-    password = input("password:\n")
-    print("loggining....")
-    if login and password in lines:
-        print("welcome back")
+    login = input("put your login:\n")
+    if login in logins:
+        print(f"Welcome to the system {login.upper()}")
     else:
-        print("oh you new one bro")
-        path.write_text(login)
-        path.write_text(password)
-    quit = input("wanna quit or relogin?(quit/relogin)")
-    if quit == 'quit':
+        name = input("Dont see you in the system\nLet me know your name:\n")
+        last_name = input("\nLet me know your last name:\n")
+        login = f"{name}{last_name}"
+        logins.append(login)
+        contents = json.dumps(logins)
+        with open(path, 'w') as f:
+            f.write(f"{contents}\n")
+    next = input("next?:\n")
+    if next == 'no':
         active = False
