@@ -26,3 +26,18 @@ def test_first_last_name():
 #also to run files better in terminal what I discovered
 #first I need to use cd + "folder name or direcotry name"
 #than if I wnat to run file I should use .\filename.py
+
+#ASSERTION
+#there most common asssertion
+#assert a == b  - assert that two values are equal
+#assert a !=  - assert that two values are not equal
+#assert a  - assert that evaluates to True
+#assert not a  - assert that evaluates to False
+#assert element in list  - assert that element in the list
+#assert element not in list  - assert that element not in the list
+
+#and so on, basically test is the function and my creativity of what to test for and pytest itself just
+# very comfortable to run huge amount of this functions I will write
+
+#fixture - a resourse that using by more than one test
+#for that I should use decorator @ and it will looks like that @pytest.fixture
