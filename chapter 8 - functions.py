@@ -8,7 +8,7 @@ def greeting():  #def - defining a function making smth() the name of a function
     print("Hello") #actual work which function will do
 greeting() #calling function
 
-#trying use inut with function, addign parameter and adding argument
+#trying use input with function, addign parameter and adding argument
 def hello(user):  #parameter in ()
     """greeting with formating"""
     print(f"Hello {user.title()}")
