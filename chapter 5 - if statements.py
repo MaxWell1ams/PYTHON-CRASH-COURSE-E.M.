@@ -31,7 +31,7 @@ else:
 
 #and with != i can simplify my code
 admin_password = 'jeremy123'
-if admin_password != 'jeremy':
+if admin_password != 'jeremy123':
     print("Wrong password")
 
 #but I usually need pass & login - here I can use 'and' to check if both conditions true
@@ -117,11 +117,11 @@ for ingradient in my_pizza:
         print(f"we don't have {ingradient}")
 print(f"Please take your order")
 
-#exercise - there not solved problem with lower upper case and title case matching
+#I was struggeling to handle case variant but figer out it just simply trying add lower or title to on of the variable
 web_current_users = ['John','Max','Anna']
-web_new_users = ['Jinny','Zxlecya','Max']
+web_new_users = ['Jinny','Lecya','Max','max','MAX']
 for user in web_new_users:
-    if user in web_current_users:
+    if user.title() in web_current_users:
         print(f"the username {user} is already taken")
     else:
         print(f"the username {user} is available to use")
