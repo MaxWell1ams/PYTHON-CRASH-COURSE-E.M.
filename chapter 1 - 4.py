@@ -108,7 +108,7 @@ lenght = len(f1_teams)
 print(lenght)
 
 #CHAPTER 4. WORKING WITH LISTS
-#so I need to use tab after for to store loop; 
+#so I need to use 4 spaces after for to store loop; 
 # and for <довільна назва змінної> in range(20): 
 # print(<ту змінну що ти придумав>) 
 # де замість range(20) будь що iterable
@@ -127,7 +127,7 @@ for number in range(1,5):
 #we can create list using range
 range_list = list(range(1,6))
 print(range_list)
-#so I can multiply by number if I will place 3d number everything will add this number
+#so I can multiply by number if I will placeq 3d number everything will add this number
 #range(від, до, крок)
 range_list2 = list(range(3, 20, 5))
 print(range_list2)
