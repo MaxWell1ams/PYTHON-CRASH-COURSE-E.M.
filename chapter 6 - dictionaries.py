@@ -54,7 +54,7 @@ for k, v in cat_2.items(): #items() iterates all the key-values in dictionaries
 # if I need only keys I can use keys() command or values() for value
 for nick in cat_2.keys():
     print(f"\nKey:{nick}")
-#and can not to use keys()
+#and I can do same without keys()
 for nick in cat_2:
     print(f"\nKey:{nick}")
 #to receive values in sorted from I can use sorted() function
