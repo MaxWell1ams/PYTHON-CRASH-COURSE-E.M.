@@ -95,7 +95,7 @@ while current_number < 10:
         continue               #here continue will ignore, skip result if its % 2
     print(current_number)
 
-## racticing
+## practicing
 prompt = "Enter your age:"
 active = True
 while active:
@@ -142,5 +142,8 @@ while polling_active:
     if repeat == 'no':
         polling_active = False  #stoping the loop
         print("|||||RESULT|||||")
-        for nam3,ag3 in db.items(): # I missed this step trying to make trio nam3,ag3,prog_lang instead of pair
-            print(f"Info about {nam3.title()}:\nAge: {ag3}\nFav programming language is: {prog_lang}")
+        for name, info in db.items(): # I missed this step trying to make trio nam3,ag3,prog_lang instead of pair
+            print(f"Info about {name}:\nAge: {info[0]}\nFav programming language is: {info[1]}")
+            #but I can use esier variant - name values of key at start and call them later on print instead of indexing
+        for name, (age, lang) in db.items():
+            print(f"Info about {name}:\nAge: {age}\nFav programming language is: {lang}")
