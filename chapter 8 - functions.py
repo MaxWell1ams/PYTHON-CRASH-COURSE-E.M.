@@ -82,8 +82,9 @@ def client_profile(first, last, **user_info):  #kwargs (for dictionaries)
     return user_info
 order_active = True
 while order_active:
-    profile = input("What's your first and last name?:\n")
-    user_profile = client_profile(profile)
+    profile = input("What's your first name?:\n")
+    profile2 = input("What's your last name?:\n")
+    user_profile = client_profile(profile,profile2)
     ingradients = input("Put your ingradient:\n")
     volume = input("What borsh volume you like?(S/M/L/XL):\n")
     borsh(volume, ingradients)
@@ -96,6 +97,7 @@ while order_active:
 # def ss(sdsd, sdds, **dsdsd)
 # also usually people use args* and **kwargs as nameplates
 #but after playing with import version this one above start braking with same reason imported did
+#then I recall that I didnt have profile2 and added it and in example below i did .split instead of it
 
 #### MODULES and IMPORT
 #so I created separate files with funbctions - so called modules
