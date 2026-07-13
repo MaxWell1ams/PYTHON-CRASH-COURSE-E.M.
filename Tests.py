@@ -1,23 +1,27 @@
 from pathlib import Path
-path = Path('PYTHON-CRASH-COURSE-E.M./chapter 10 folder/simple_db1.txt')
-print("Hello\nProvide your login and password:")
+import json
+path = Path('PYTHON-CRASH-COURSE-E.M./chapter 10 folder/json_db.json')
+print("Welcome to JSONDB")
 active = True
 while active:
     contents = path.read_text()
-    lines = contents
-    login = input("login:\n")
-    password = input("password:\n")
-    print("loggining....")
-    if password.lower() in lines:
-        print("welcome back")
+    logins = json.loads(contents) #damn I was frustrated
+# so if my json file will be empty loads() will not work so I needed to add []
+# to the file to make my rogramm work
+    login = input("put your login:\n")
+    if login in logins:
+        print(f"Welcome to the system {login.upper()}")
     else:
-        print("oh you new one bro")
-        #path.write_text(f"{password}\n") --- #its cant write login,password in one run
-        #so I can use only 1 value and its will be pass 
-        # cuz next value will overwrite it so will use pass
-        with open(path, 'a') as f: #I researched that I can utilise a - as append
-            # w as write and r as read in format above
-            f.write(f"{login}\n{password} \n")
-    quit = input("wanna quit or relogin?(quit/relogin)")
-    if quit == 'quit':
+        name = input("Dont see you in the system\nLet me know your name:\n")
+        last_name = input("\nLet me know your last name:\n")
+        login = f"{name}{last_name}"
+        print(f"Your login is {login}")
+        logins.append(login) #here I using append cuz open(path, 'a') will add new list and
+        # loads will not able to read it, so I adding new data in python and overwrite 
+        # it already updated
+        contents = json.dumps(logins)
+        with open(path, 'w') as f:
+            f.write(f"{contents}\n")
+    next = input("next?:\n")
+    if next == 'no':
         active = False
