@@ -25,12 +25,12 @@ path.write_text(content)
 
 #at least I can do program which will store(but overwrite) and read data in a file
 from pathlib import Path
-path = Path('chapter 10 folder/simple_db1.txt')
-contents = path.read_text()
-lines = contents
+path = Path('PYTHON-CRASH-COURSE-E.M./chapter 10 folder/simple_db1.txt')
 print("Hello\nProvide your login and password:")
 active = True
 while active:
+    contents = path.read_text()
+    lines = contents
     login = input("login:\n")
     password = input("password:\n")
     print("loggining....")
@@ -47,6 +47,8 @@ while active:
     quit = input("wanna quit or relogin?(quit/relogin)")
     if quit == 'quit':
         active = False
+        #after few experiments I moved contents = path.read part to loop
+        #as it allowed me to refresh db check each login
 
 
 ### Exeptions - so its basically try, except blocks to avoid errors
