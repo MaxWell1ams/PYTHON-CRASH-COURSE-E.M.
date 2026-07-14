@@ -1,6 +1,6 @@
 class DriverProfile:
     """Describes simracer-driver profile"""
-    def __init__ (self,name, primary_game, wheel_hardware):
+    def __init__ (self, name, primary_game, wheel_hardware):
         self.name = name
         self.game = primary_game
         self.wheel = wheel_hardware

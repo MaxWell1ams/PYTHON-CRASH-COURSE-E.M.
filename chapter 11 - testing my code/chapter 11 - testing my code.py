@@ -1,3 +1,16 @@
+#File naming matters — pytest auto-discovers files/functions by naming convention:
+#Test files must be named test_*.py or *_test.py (test_survey.py)
+#Test functions inside must start with test_ (def test_city_country():)
+#Run all tests — navigate to your project folder in terminal, then:
+#pytest
+#It automatically finds every test_*.py file and runs every test_* function inside.
+#Run one specific file:
+#pytest test_survey.py
+#Run one specific function inside a file:
+#pytest test_survey.py::test_city_country
+#To see more detail:
+#bashpytest -v
+
 def get_name_formated(first,last):
     """gen formated name"""
     full_name = f"{first} {last}"
