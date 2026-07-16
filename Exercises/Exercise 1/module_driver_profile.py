@@ -5,8 +5,7 @@ class DriverProfile:
         self.game = primary_game
         self.wheel = wheel_hardware
         self.lap_times_db = {}
-
+    
     def record_lap_time(self, track, lap_time):
         """Stores these lap times in a dictionary attribute"""
-        self.lap_time = lap_time
-        self.track = track
+        self.lap_times_db[track] = lap_time
